@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+// import { getAuth } from 'firebase/auth';
 import React from 'react';
-import { useState } from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import login from '../../login.png';
 
 const Join = () => {
-    const auth = getAuth();
+    // const auth = getAuth();
     const { googleSignIn } = useAuth();
     const location = useLocation();
     const history = useHistory();
@@ -17,8 +16,6 @@ const Join = () => {
     const handleGoogle = () => {
         googleSignIn()
             .then((result) => {
-                console.log(result._tokenResponse);
-
                 const userData = result._tokenResponse;
                 const data = {
                     email: userData.email,
@@ -36,27 +33,27 @@ const Join = () => {
                 history.push(redirect_url);
             });
     };
-    const [email, setEmail] = useState("");
-    const [password, setPass] = useState("");
-    const [errorMsg, setErrorMsg] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPass] = useState("");
+    // const [errorMsg, setErrorMsg] = useState("");
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-    const handlePassChange = (e) => {
-        setPass(e.target.value);
-    };
-    const handleSignIn = (e) => {
-        console.log(email, password);
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                history.push(redirect_url);
-            })
-            .catch((error) => {
-                setErrorMsg(error.message);
-            });
-    };
+    // const handleEmailChange = (e) => {
+    //     setEmail(e.target.value);
+    // };
+    // const handlePassChange = (e) => {
+    //     setPass(e.target.value);
+    // };
+    // const handleSignIn = (e) => {
+    //     console.log(email, password);
+    //     e.preventDefault();
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then((result) => {
+    //             history.push(redirect_url);
+    //         })
+    //         .catch((error) => {
+    //             setErrorMsg(error.message);
+    //         });
+    // };
 
     return (
         <div className="container py-5">

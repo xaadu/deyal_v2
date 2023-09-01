@@ -7,7 +7,7 @@ const Info = () => {
 
     const [therapists, setTherapist] = useState([]);
     useEffect(() => {
-        fetch('/therapist.json')
+        fetch('http://127.0.0.1:8000/therapists/')
             .then(res => res.json())
             .then(data => setTherapist(data))
     }, []);
@@ -46,7 +46,14 @@ const Info = () => {
                             <div className="col-lg-4 col-md-6" key={therapist?.id}>
                                 <img className="p-5 img-fluid rounded-circle" src={therapist?.img} alt="therapist" />
                                 <h3>{therapist?.name}</h3>
-                                <small><span className="fw-bolder">Experience: </span><span className="text-main">{therapist?.expyear} + Years</span></small>
+                                <small>
+                                    <span className="fw-bolder">Speciality: </span>
+                                    <span className="text-main">{therapist?.speciality}</span>
+                                </small><br />
+                                <small>
+                                    <span className="fw-bolder">Experience: </span>
+                                    <span className="text-main">{therapist?.expyear} + Years</span>
+                                </small>
                             </div>
                         ))
                     }

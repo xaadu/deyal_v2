@@ -5,74 +5,90 @@ import dpic from '../../assets/datepick.png';
 
 const ServiceDetails = () => {
     const { serviceId } = useParams();
-    const key = parseInt(serviceId);
+    // const key = parseInt(serviceId);
 
-    const [serviceDetails, setServiceDetails] = useState([]);
+    const [serviceDetails, setServiceDetails] = useState({});
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/services/')
+        fetch(`http://127.0.0.1:8000/services/${serviceId}/`)
             .then(res => res.json())
             .then(data => setServiceDetails(data))
-    }, []);
-    const service = serviceDetails.find(({ id }) => id === key);
+    }, [serviceId]);
 
-    const [therapist, setTherapist] = useState([]);
+    const [therapists, setTherapists] = useState([]);
     useEffect(() => {
-        fetch('/therapist.json')
+        fetch(`http://127.0.0.1:8000/therapists/?speciality_id=${serviceId}`)
             .then(res => res.json())
-            .then(data => setTherapist(data))
-    }, []);
-    const person = therapist.find(({ id }) => id === key);
+            .then(data => setTherapists(data))
+    }, [serviceId]);
+    // const person = therapists.find(({ id }) => id === key);
 
     return (
         <div className="container text-start">
             <section>
                 <div className="row justify-content-between align-items-center">
                     <div className="col-md-6">
-                        <h1 className="mt-3 fw-bolder">{service?.title}</h1>
-                        <p className="fs-5"><span className="fw-bolder text-main">Therapist: </span>{person?.name}</p>
-                        <p className="text-second">{service?.description}</p>
-                        <p><span className="px-2 py-1 me-2 btn-main rounded-3"><i className="fas fa-stopwatch"></i> Duration</span> <span className="fw-bolder text-second">{service?.duration} Hours</span></p>
+                        <h1 className="mt-3 fw-bolder">{serviceDetails?.title}</h1>
+                        {/* <p className="fs-5">
+                            <span className="fw-bolder text-main">Therapist: </span>{person?.name}
+                        </p> */}
+                        <p className="text-second">{serviceDetails?.description}</p>
+                        <p>
+                            <span className="px-2 py-1 me-2 btn-main rounded-3">
+                                <i className="fas fa-stopwatch"></i> Duration
+                            </span>
+                            <span className="fw-bolder text-second">{serviceDetails?.duration} Hours</span>
+                        </p>
                     </div>
                     <div className="col-md-5">
-                        <img className="p-5 img-fluid" src={service?.img} alt="service img" />
+                        <img className="p-5 img-fluid" src={serviceDetails?.img} alt="service img" />
                     </div>
                 </div>
                 <div>
-                    <h3 className="fw-bolder">What is <span className="text-main">{service?.title}</span> ?</h3>
-                    <p className="py-3">{service?.what}</p>
+                    <h3 className="fw-bolder">What is <span className="text-main">{serviceDetails?.title}</span> ?</h3>
+                    <p className="py-3">{serviceDetails?.what}</p>
                 </div>
                 <div>
                     <h3 className="fw-bolder">Common symtomps -</h3>
                     <ul className="p-3">
                         {
-                            service?.sym.map(symp => (
-                                <li key={symp} className="mx-5 list-unstyled fs-5"><i className="fas fa-caret-right text-main"></i> {symp}</li>
+                            serviceDetails?.sym && serviceDetails?.sym.map(symp => (
+                                <li key={symp} className="mx-5 list-unstyled fs-5">
+                                    <i className="fas fa-caret-right text-main"></i> {symp}
+                                </li>
                             ))
                         }
                     </ul>
                 </div>
                 <div>
-                    <h3 className="fw-bolder">How to cure <span className="text-main">{service?.title}</span> ?</h3>
-                    <p className="py-3">{service?.cure}</p>
+                    <h3 className="fw-bolder">How to cure <span className="text-main">{serviceDetails?.title}</span> ?</h3>
+                    <p className="py-3">{serviceDetails?.cure}</p>
                 </div>
             </section>
             <section className="container">
-                <h1 className="mt-5 text-center fw-bolder">Recomended <span className="text-main">Therapist</span></h1>
-                <div className="row justify-content-center">
-                    <div className="py-5 col-lg-8">
-                        <div className="row align-items-center">
-                            <div className="text-center col-sm-5">
-                                <img className="img-fluid rounded-circle" src={person?.img} alt="therapist" />
-                                <h4 className="mt-2 mb-0">{person?.name}</h4>
-                                <span className="text-second fw-bolder d-block">Speciality in{service?.title}</span>
-                                <small className="text-main">{person?.expyear} Years+ Experience</small>
+                <h1 className="mt-5 text-center fw-bolder">Recomended <span className="text-main">Therapists</span></h1>
+                {
+                    therapists && therapists.map((therapist) => {
+                        return (
+                            <div className="row justify-content-center">
+                                <div className="py-5 col-lg-8">
+                                    <div className="row align-items-center">
+                                        <div className="text-center col-sm-5">
+                                            <img className="img-fluid rounded-circle" src={therapist?.img} alt="therapist" />
+                                            <h4 className="mt-2 mb-0">{therapist?.name}</h4>
+                                            <span className="text-second fw-bolder d-block">
+                                                Speciality in {serviceDetails?.title}
+                                            </span>
+                                            <small className="text-main">{therapist?.expyear} Years+ Experience</small>
+                                        </div>
+                                        <div className="col-sm-7">
+                                            <small>{therapist?.description}</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col-sm-7">
-                                <small>{person?.description}</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        )
+                    })
+                }
             </section>
             <section>
                 <div className="my-5 row align-items-center">
@@ -102,7 +118,9 @@ const ServiceDetails = () => {
                             </div>
 
                             <div className="my-2 col-md-12">
-                                <label className="p-1 mb-3 rounded-3 me-3 btn-main" htmlFor="pickTime"> Pick Your Suitable Time</label>
+                                <label className="p-1 mb-3 rounded-3 me-3 btn-main" htmlFor="pickTime">
+                                    Pick Your Suitable Time
+                                </label>
                                 <input type="time" name="" id="pickTime" />
                             </div>
 

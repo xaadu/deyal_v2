@@ -8,9 +8,9 @@ const Info = () => {
     const [therapists, setTherapist] = useState([]);
     useEffect(() => {
         fetch('/therapist.json')
-        .then(res => res.json())
-        .then(data => setTherapist(data))
-    },[]);
+            .then(res => res.json())
+            .then(data => setTherapist(data))
+    }, []);
 
     return (
         <div>

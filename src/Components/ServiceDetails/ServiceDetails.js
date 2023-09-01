@@ -4,24 +4,24 @@ import { useParams } from 'react-router';
 import dpic from '../../datepick.png';
 
 const ServiceDetails = () => {
-    const {serviceId}= useParams();
+    const { serviceId } = useParams();
     const key = parseInt(serviceId);
 
     const [serviceDetails, setServiceDetails] = useState([]);
     useEffect(() => {
-        fetch('/services.json')
-        .then(res => res.json())
-        .then(data => setServiceDetails(data))
-    },[]);
-    const service = serviceDetails.find( ({ id }) => id === key );
-    
+        fetch('http://127.0.0.1:8000/services/')
+            .then(res => res.json())
+            .then(data => setServiceDetails(data))
+    }, []);
+    const service = serviceDetails.find(({ id }) => id === key);
+
     const [therapist, setTherapist] = useState([]);
     useEffect(() => {
         fetch('/therapist.json')
-        .then(res => res.json())
-        .then(data => setTherapist(data))
-    },[]);
-    const person = therapist.find( ({ id }) => id === key );
+            .then(res => res.json())
+            .then(data => setTherapist(data))
+    }, []);
+    const person = therapist.find(({ id }) => id === key);
 
     return (
         <div className="container text-start">
@@ -45,8 +45,8 @@ const ServiceDetails = () => {
                     <h3 className="fw-bolder">Common symtomps -</h3>
                     <ul className="p-3">
                         {
-                            service?.sym.map(symp=>(
-                                <li key={symp}  className="mx-5 list-unstyled fs-5"><i className="fas fa-caret-right text-main"></i> {symp}</li>
+                            service?.sym.map(symp => (
+                                <li key={symp} className="mx-5 list-unstyled fs-5"><i className="fas fa-caret-right text-main"></i> {symp}</li>
                             ))
                         }
                     </ul>
@@ -92,7 +92,7 @@ const ServiceDetails = () => {
                             <div className="my-2 col-md-12">
                                 <input className="form-control" type="number" name="number" placeholder="Your Current Age" required />
                             </div>
-                             <div className="my-2 col-md-12">
+                            <div className="my-2 col-md-12">
                                 <select className="mt-3 form-select" required>
                                     <option disabled defaultValue="">Pick A Week Date</option>
                                     <option defaultValue="jweb">Satday</option>
@@ -108,7 +108,7 @@ const ServiceDetails = () => {
 
                             <div className="my-2 col-md-12">
                                 <label className="mb-3 me-2 fw-bolder text-second" htmlFor="gender">Gender: </label>
-                                
+
                                 <input type="radio" className="btn-check" name="gender" id="male" autoComplete="off" required />
                                 <label className="btn btn-sm btn-outline-main me-3" htmlFor="male">Male</label>
 

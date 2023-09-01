@@ -6,11 +6,11 @@ import ServiceList from '../ServiceList/ServiceList';
 const Services = () => {
     const [services, setServices] = useState([]);
 
-    useEffect(() =>{
-        fetch('./services.json')
-        .then(res => res.json())
-        .then(data => setServices(data))
-    },[]);
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/services/')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, []);
 
     return (
         <div>

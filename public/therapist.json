@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "name": "Albert Bandura",
+        "img": "https://i.ibb.co/B20CzsN/t3.jpg",
+        "expyear": 10,
+        "description": "The most cited counseling psychologist alive is Albert Bandura, a David Starr Jordan Professor Emeritus of Social Science in Psychology at Stanford University. Bandura’s contribution to the field of psychology spans nearly six decades and includes areas of specialty in therapy, personality, social cognition, and behaviorism."
+    },
+    {
+        "id": 1,
+        "name": "Roy Baumeister",
+        "img": "https://i.ibb.co/mShQjzh/t1.jpg",
+        "expyear": 7,
+        "description": "A Francis Eppes Professor of Psychology at Florida State University, Roy Baumeister is known for his research on the self, irrationality and self-defeating behavior, self-regulation, and the need to belong. His current research focuses on self-control and decision-making. Baumeister received his doctorate from Princeton University and has focused his interests in sociology and social networks, sexual orientation, and the self and identity. He is the author of six books and numerous journal articles. He is active in social media and known for his provocative studies in erotic plasticity."
+    },
+    {
+        "id": 2,
+        "name": "Carol Dweck",
+        "img": "https://i.ibb.co/12bLKxg/file-20191203-66986-im7o5.jpg",
+        "expyear": 8,
+        "description": "Professor of Psychology at Stanford University, Carol Dweck has become recognized for her research in the fields of motivation and social psychology. Her research focuses on origins of social, personality, and developmental psychology and how they bridge together with self-regulation and mindsets. Dweck is the recipient of numerous awards and honors, including Distinguished Scholar Award in 2013 for the Society for Personality and Social Psychology."
+    },
+    {
+        "id": 3,
+        "name": "Hans-Werner Gessmann",
+        "img": "https://i.ibb.co/b3FDVsR/t2.jpg",
+        "expyear": 11,
+        "description": "Known for his work on the causation factors of dyslexia, Hans-Werner Gessmann is a German counseling psychologist, university professor, and psychodramatherapist. He is currently recognized for being the only empirical researcher in the psychodrama field, offering over 140 articles in publication pertaining to the subject. Gessmann founded the prestigious training center in Duisburg in 1973, known as the Psychotherapeutic Institute Bergerhausen. To date, it has trained over 1,500 psychotherapists."
+    },
+    {
+        "id": 4,
+        "name": "Susan Carey",
+        "img": "https://i.ibb.co/m5NZLj3/Waist-up-portrait-of-beautiful-African-American-nurse-posing-confidently-while-standing-with-arms-cr.jpg",
+        "expyear": 7,
+        "description": "Harvard University graduate and current professor for the Department of Psychology at Harvard, Susan Carey is a world-renowned psychologist and counselor. Known throughout the globe as an expert in language acquisition, she was the first woman to receive the Rumelhart Prize in 2009, giving way to women thought leaders in the field. Before joining the faculty at Harvard, Carey taught at MIT and NYU. She is the author of numerous journal articles and a book entitled Conceptual Change in Childhood. The work reconciled Piaget’s research on animism."
+    },
+    {
+        "id": 5,
+        "name": "Elizabeth Spelke",
+        "img": "https://i.ibb.co/NC6yqnY/Friendly-Latin-American-female-doctor-at-the-hospital-looking-at-the-camera-and-smiling.jpg",
+        "expyear": 6,
+        "description": "Elizabeth Spelke is a cognitive psychology at Harvard University’s Department of Psychology. She is also the director of the Laboratory for Developmental Studies, where she studies and defends the debate on cognitive differences between males and females. After attending Radcliffe College and Yale University, Spelke received her doctorate from Cornell University. She has received numerous honors and awards, including the National Academy of Sciences Prize in Psychological and Cognitive Sciences honor in 2014."
+    }
+]

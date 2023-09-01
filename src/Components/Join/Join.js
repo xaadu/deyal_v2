@@ -4,7 +4,7 @@ import axios from 'axios';
 import React from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import login from '../../login.png';
+import login from '../../assets/login.png';
 
 const Join = () => {
     // const auth = getAuth();

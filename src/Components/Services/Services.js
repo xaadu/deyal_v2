@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import support from '../../support.png';
+import support from '../../assets/support.png';
 import ServiceList from '../ServiceList/ServiceList';
 
 const Services = () => {

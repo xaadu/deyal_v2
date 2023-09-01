@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../logo.png';
-import playstore from '../../android.png';
+import logo from '../../assets/logo.png';
+import playstore from '../../assets/android.png';
 
 const Footer = () => {
     return (
@@ -19,7 +19,7 @@ const Footer = () => {
                         <h6 className="mb-2 text-white"><span className="border-2 border-bottom border-main">Connect Wi</span>th Us</h6>
                         <div className="my-2 d-flex text-second">
                             <small className="col-1"><i className="text-white fas fa-map-marker-alt"></i></small>
-                            <small>This Street,<br/>Dhaka, Bangladesh</small>
+                            <small>This Street,<br />Dhaka, Bangladesh</small>
                         </div>
                         <div className="my-2 d-flex text-second">
                             <small className="col-1"><i className="text-white fas fa-phone-alt"></i></small>

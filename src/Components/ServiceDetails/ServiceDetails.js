@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import dpic from '../../datepick.png';
+import dpic from '../../assets/datepick.png';
 
 const ServiceDetails = () => {
     const { serviceId } = useParams();

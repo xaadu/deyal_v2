@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import showImg from '../../showcase-img.png';
-import home1 from '../../home01.png';
-import home2 from '../../home02.png';
-import home3 from '../../home03.png';
+import showImg from '../../assets/showcase-img.png';
+import home1 from '../../assets/home01.png';
+import home2 from '../../assets/home02.png';
+import home3 from '../../assets/home03.png';
 import Service from '../Service/Service';
 
 const Home = () => {

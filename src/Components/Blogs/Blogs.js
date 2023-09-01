@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import blogImg from '../../blog.png'
+import blogImg from '../../assets/blog.png'
 
 const Blogs = () => {
 
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
         fetch('/blogs.json')
-        .then(res => res.json())
-        .then(data => setBlogs(data))
-    },[]);
+            .then(res => res.json())
+            .then(data => setBlogs(data))
+    }, []);
     return (
         <div>
             <section className="container">
@@ -26,21 +26,21 @@ const Blogs = () => {
             </section>
             <section className="container">
                 <h1 className="my-5 fw-bolder text-main">Our Recent Blogs</h1>
-                    <div className="row g-4">
-                        {
-                            blogs.map((blog) => (
-                                <div className="col-12" key={blog?.id}>
-                                    <div className="p-5 mb-2 shadow box rounded-20 text-start">
-                                        <h3>{blog?.title}</h3>
-                                        <span className="px-2 py-1 btn-main pe-auto rounded-3"><i className="far fa-calendar-alt"></i> {blog?.date}</span>
-                                        <br />
-                                        <small className="mt-4 d-block text-second">{blog?.des}</small>
-                                        <Link className="mt-3 btn btn-outline-main" to="/blogpost">Read More</Link>
-                                    </div>
+                <div className="row g-4">
+                    {
+                        blogs.map((blog) => (
+                            <div className="col-12" key={blog?.id}>
+                                <div className="p-5 mb-2 shadow box rounded-20 text-start">
+                                    <h3>{blog?.title}</h3>
+                                    <span className="px-2 py-1 btn-main pe-auto rounded-3"><i className="far fa-calendar-alt"></i> {blog?.date}</span>
+                                    <br />
+                                    <small className="mt-4 d-block text-second">{blog?.des}</small>
+                                    <Link className="mt-3 btn btn-outline-main" to="/blogpost">Read More</Link>
                                 </div>
-                            ))
-                        }
-                    </div>
+                            </div>
+                        ))
+                    }
+                </div>
             </section>
         </div>
     );

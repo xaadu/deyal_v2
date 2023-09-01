@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import doctor from '../../thr.png';
-import help from '../../help.png';
+import doctor from '../../assets/thr.png';
+import help from '../../assets/help.png';
 
 const Info = () => {
 

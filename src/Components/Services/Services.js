@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/services/')
+        fetch('https://deyal-service.zayedabdullah.com/services/')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);

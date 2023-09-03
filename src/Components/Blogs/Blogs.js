@@ -11,7 +11,7 @@ const Blogs = () => {
 
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/blogs/?page=${pageNum}`)
+        fetch(`https://deyal-service.zayedabdullah.com/blogs/?page=${pageNum}`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data?.results);

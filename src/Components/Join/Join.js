@@ -23,7 +23,7 @@ const Join = () => {
                     photo_url: userData.photoUrl,
                 }
                 console.log(data);
-                axios.post('http://127.0.0.1:8000/account/users/', data,)
+                axios.post('https://deyal-service.zayedabdullah.com/account/users/', data,)
                     .then(function (response) {
                         console.log(response);
                     })

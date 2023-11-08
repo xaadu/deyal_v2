@@ -26,7 +26,7 @@ const Posts = () => {
 
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch(`https://deyal-service.zayedabdullah.com/posts/?page=${pageNum}`)
+        fetch(`https://deyal-service.zayedabdullah.com/api/posts/?page=${pageNum}`)
             .then(res => res.json())
             .then(data => {
                 setPosts(data?.results);
@@ -50,7 +50,7 @@ const Posts = () => {
             site_user: user?.email,
         }
         fetch(
-            `https://deyal-service.zayedabdullah.com/posts/`,
+            `https://deyal-service.zayedabdullah.com/api/posts/`,
             {
                 method: "POST",
                 headers: {

@@ -7,7 +7,7 @@ const Info = () => {
 
     const [therapists, setTherapist] = useState([]);
     useEffect(() => {
-        fetch('https://deyal-service.zayedabdullah.com/therapists/')
+        fetch('https://deyal-service.zayedabdullah.com/api/therapists/')
             .then(res => res.json())
             .then(data => setTherapist(data))
     }, []);

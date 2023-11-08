@@ -17,14 +17,14 @@ const ServiceDetails = () => {
 
     const [serviceDetails, setServiceDetails] = useState({});
     useEffect(() => {
-        fetch(`https://deyal-service.zayedabdullah.com/services/${serviceId}/`)
+        fetch(`https://deyal-service.zayedabdullah.com/api/services/${serviceId}/`)
             .then(res => res.json())
             .then(data => setServiceDetails(data))
     }, [serviceId]);
 
     const [therapists, setTherapists] = useState([]);
     useEffect(() => {
-        fetch(`https://deyal-service.zayedabdullah.com/therapists/?speciality_id=${serviceId}`)
+        fetch(`https://deyal-service.zayedabdullah.com/api/therapists/?speciality_id=${serviceId}`)
             .then(res => res.json())
             .then(data => setTherapists(data));
     }, [serviceId]);
@@ -42,7 +42,7 @@ const ServiceDetails = () => {
             "site_user": auth.currentUser.email,
         }
         fetch(
-            `https://deyal-service.zayedabdullah.com/therapists/appointment-bookings/`,
+            `https://deyal-service.zayedabdullah.com/api/therapists/appointment-bookings/`,
             {
                 method: "POST",
                 headers: {
@@ -67,7 +67,7 @@ const ServiceDetails = () => {
         const qs = `therapist_id=${therapist_id}&appointment_type=${appointment_type}`
         if (therapist_id && appointment_type)
             fetch(
-                `https://deyal-service.zayedabdullah.com/therapists/appointment-times/?${qs}`
+                `https://deyal-service.zayedabdullah.com/api/therapists/appointment-times/?${qs}`
             )
                 .then(res => res.json())
                 .then(data => setWeekDates(data));
